@@ -141,11 +141,10 @@ document.addEventListener("DOMContentLoaded", () => {
       6: [4.91, 4.90, 4.81, 4.91, 4.87, 4.71, 4.09, 4.26, 3.33, 4.38, 3.48, 4.51, 4.13, 3.13, 4.28, 3.70, 3.88, 3.16],
     };
 
+    // 수정: 1~5 고정 범위로 정규화 (기존 개별 정규화 방식 제거)
+    // 기존 방식은 각 벡터의 min/max가 달라 실제 점수 차이가 사라지는 문제가 있었음
     function normalize(arr) {
-      const min = Math.min(...arr);
-      const max = Math.max(...arr);
-      const denom = max - min || 1;
-      return arr.map((v) => (v - min) / denom);
+      return arr.map((v) => (v - 1) / 4); // 항상 1~5 기준으로 고정
     }
 
     const userNorm = normalize(answers);

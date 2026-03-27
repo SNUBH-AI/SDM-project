@@ -46,9 +46,7 @@
   cursor: pointer;
 }
 
-.intro-btn:hover{
-  filter: brightness(0.95);
-}
+.intro-btn:hover{ filter: brightness(0.95); }
 
 .intro-btn .arrow{
   display: inline-flex;
@@ -86,20 +84,46 @@
   object-fit: contain;
 }
 
-.logo-right img[alt*="분당서울대학교병원"]{
-  height: 30px;
-}
+.logo-right img[alt*="분당서울대학교병원"]{ height: 30px; }
 
 @media (max-width: 900px){
   .container.cover{
-    padding: 30px 22px;
-    min-height: calc(100vh - 120px);
+    padding: 24px 20px 40px;
+    justify-content: center;
+    position: relative;
   }
-
+ 
+  .cover-intro{ margin: 0 auto 40px; max-width: 100%; }
+  .title-row{ flex-direction: column; gap: 12px; }
+  .title-icon{ height: 56px; }
+ 
+  .cover-intro h1{
+    font-size: 22px;
+    word-break: keep-all;
+    line-height: 1.4;
+    margin-top: 8px;
+  }
+ 
+  .cover-intro .subtitle{
+    font-size: 15px;
+    margin: 6% 0 6%;
+    word-break: keep-all;
+  }
+ 
+  .intro-btn{ padding: 16px 40px; font-size: 16px; border-radius: 12px; }
+ 
   .logo-bar{
-    right: 20px;
-    bottom: 20px;
-    transform: scale(0.85);
-    transform-origin: right bottom;
+    position: static;
+    justify-content: center;
+    margin-top: 30px;
   }
+ 
+  .logo-right img{ height: 28px; }
+  .logo-right img[alt*="분당서울대학교병원"]{ height: 22px; }
+}
+ 
+@media (max-width: 480px){
+  .cover-intro h1{ font-size: 19px; }
+  .cover-intro .subtitle{ font-size: 14px; }
+  .intro-btn{ padding: 14px 32px; font-size: 15px; }
 }

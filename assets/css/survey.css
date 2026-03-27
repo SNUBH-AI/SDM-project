@@ -4,7 +4,6 @@
   padding: 24px 20px 50px;
 }
 
-/* 상단 중앙 타이틀 */
 .survey-top{
   display: flex;
   align-items: center;
@@ -19,9 +18,7 @@
   display: block;
 }
 
-.survey-title{
-  line-height: 1.2;
-}
+.survey-title{ line-height: 1.2; }
 
 .survey-title strong{
   display: block;
@@ -36,7 +33,6 @@
   color: #666;
 }
 
-/* 민트 테두리 박스 */
 .likert-box{
   max-width: 80%;
   margin: 14px auto 0;
@@ -48,7 +44,6 @@
   margin-bottom: 0;
 }
 
-/* ====== 헤더 ====== */
 .likert-header-row{
   display: grid;
   grid-template-columns: 45% repeat(5, 1fr);
@@ -64,14 +59,12 @@
   white-space: nowrap;
 }
 
-/* 문항 표 */
 .likert-box ol{
   counter-reset: question var(--q-start, 0);
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
 
 .likert-box li{
   counter-increment: question;
@@ -81,9 +74,7 @@
   padding: 14px 0;
 }
 
-.question-wrapper{
-  padding-right: 18px;
-}
+.question-wrapper{ padding-right: 18px; }
 
 .question-text{
   display: block;
@@ -101,7 +92,6 @@
   color: #1a1a1a;
 }
 
-/* 옵션 */
 .options{ display: contents; }
 
 .options label{
@@ -136,7 +126,6 @@
   font-weight: 800;
 }
 
-/* 하단 버튼 영역 */
 .survey-bottom{
   max-width: 82%;
   margin: 22px auto 0;
@@ -146,24 +135,22 @@
   align-items: center;
 }
 
-/* 버튼 */
 .prev-btn,
 .next-btn,
 .submit{
   min-width: 200px;
-  height: 52px;               /* 높이 고정(원하면 제거 가능) */
-  padding: 0 56px;            /* 좌/우 화살표 자리 확보 (중요) */
+  height: 52px;
+  padding: 0 56px;
   border-radius: 10px;
   border: none;
   font-size: 18px;
-  position: relative;         /* 가상요소 위치 기준 */
+  position: relative;
   display: inline-flex;
   align-items: center;
-  justify-content: center;    /* 텍스트를 버튼 정중앙 고정 */
+  justify-content: center;
   white-space: nowrap;
 }
 
-/* 화살표 공통 */
 .prev-btn::before,
 .next-btn::after{
   content: "";
@@ -175,7 +162,6 @@
   background: url("../logo/header_arr.png") center / contain no-repeat;
 }
 
-/* 이전 버튼 */
 .prev-btn{
   background: #4aa7a1;
   color: #fff;
@@ -183,15 +169,12 @@
 }
 
 .prev-btn::before{
-  left: 22px;                 /* ← 화살표를 더 옆으로: 숫자 키우기 */
+  left: 22px;
   transform: translateY(-50%) rotate(180deg);
 }
 
-.prev-btn:hover{
-  filter: brightness(0.95);
-}
+.prev-btn:hover{ filter: brightness(0.95); }
 
-/* 다음 버튼 (비활성) */
 .next-btn{
   background: #e0e4e7;
   color: #fff;
@@ -200,26 +183,19 @@
 }
 
 .next-btn::after{
-  right: 22px;                /* → 화살표를 더 옆으로: 숫자 키우기 */
+  right: 22px;
   opacity: .55;
 }
 
-/* 다음 버튼 (활성) */
 .next-btn.active{
   background: #4aa7a1;
   cursor: pointer;
   pointer-events: auto;
 }
 
-.next-btn.active::after{
-  opacity: 1;
-}
+.next-btn.active::after{ opacity: 1; }
+.next-btn.active:hover{ filter: brightness(0.95); }
 
-.next-btn.active:hover{
-  filter: brightness(0.95);
-}
-
-/* 제출 버튼 */
 .submit{
   background:#e0e4e7;
   color:#fff;
@@ -233,17 +209,14 @@
   pointer-events:auto;
 }
 
-.submit.active:hover{
-  filter: brightness(0.95);
-}
+.submit.active:hover{ filter: brightness(0.95); }
 
-/* 페이지 인디케이터 */
 .page-indicator{
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
-  margin: 0;             
+  margin: 0;
 }
 
 .page-indicator .dot{
@@ -253,9 +226,7 @@
   background: #d6dde2;
 }
 
-.page-indicator .dot.active{
-  background: #4aa7a1;
-}
+.page-indicator .dot.active{ background: #4aa7a1; }
 
 .likert-box .survey-bottom{
   position: static;
@@ -271,27 +242,45 @@
   bottom: auto;
 }
 
-/* 반응형 */
-@media (max-width: 860px){
+@media (max-width: 900px){
+  .container.survey-page{ max-width: 100%; padding: 16px 14px 40px; }
+ 
+  .survey-top{ gap: 10px; margin: 3% 0 2%; }
+  .survey-logo{ height: 44px; }
+  .survey-title strong, .survey-title p{ font-size: 14px; }
+ 
+  .likert-box{ max-width: 100%; padding: 12px 12px 8px; }
   .likert-header-row{ display: none; }
-
-  .likert-box li{
-    grid-template-columns: 1fr;
-  }
-
+ 
+  .likert-box li{ grid-template-columns: 1fr; padding: 12px 0; }
+  .question-text{ font-size: 15px; }
+ 
   .options{
     display: flex;
     justify-content: space-between;
-    gap: 18px;
+    gap: 6px;
     margin-top: 10px;
   }
-
+ 
+  .options input[type="radio"]{ width: 28px; height: 28px; }
+ 
+  .survey-bottom{ max-width: 100%; margin-top: 16px; padding: 0; }
+ 
   .prev-btn, .next-btn, .submit{
-    min-width: 120px;
+    min-width: 90px;
+    height: 44px;
+    padding: 0 28px;
+    font-size: 14px;
   }
-
-  .survey-bottom{
-    margin-top: 18px;
-    padding: 0;
+ 
+  .prev-btn::before{ left: 12px; }
+  .next-btn::after{ right: 12px; }
+}
+ 
+@media (max-width: 480px){
+  .prev-btn, .next-btn, .submit{
+    min-width: 76px;
+    padding: 0 22px;
+    font-size: 13px;
   }
 }
