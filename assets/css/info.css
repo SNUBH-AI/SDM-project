@@ -35,29 +35,33 @@
   margin-left: 25%;
 }
 
+/* ── info 상단 타이틀 ── */
 .info-top{
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 14px;
-  margin: 2% 0;
+  margin: 3% 0 2%;
 }
 
 .info-logo{ height: 80px; width: auto; display: block; }
 
-.info-title{ line-height: 1.4; }
+.info-title{ line-height: 1.5; }
 
 .info-title strong{
   display: block;
   font-size: 20px;
+  font-weight: 700;
   color: #1a1a1a;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .info-title p{
   margin: 0;
-  font-size: 20px;
-  color: #666;
+  font-size: 16px;
+  color: #888;
+  line-height: 1.65;
+  word-break: keep-all;
 }
 
 #phone,
@@ -70,7 +74,7 @@
   border: 1px solid #e5eaf0;
   background: #f9fbfd;
   padding: 0 14px;
-  font-size: 20px;
+  font-size: 16px;
   outline: none;
   color: #222;
   box-sizing: border-box;
@@ -129,7 +133,7 @@
 .consent-label{
   display: inline-block;
   color: #777;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .consent-chev{
@@ -165,7 +169,7 @@
   border-bottom: 1px solid #eef2f6;
 }
 
-.consent-panel-title{ font-size: 20px; font-weight: 800; color: #111; }
+.consent-panel-title{ font-size: 16px; font-weight: 800; color: #111; }
 
 .consent-panel-x{
   border: none;
@@ -182,8 +186,8 @@
   overflow: auto;
 }
 
-.modal-sub{ margin: 12px 0 6px; font-weight: 800; font-size: 20px; color: #111; }
-.modal-text{ margin: 0; font-size: 20px; color: #555; line-height: 1.55; }
+.modal-sub{ margin: 12px 0 6px; font-weight: 700; font-size: 15px; color: #111; }
+.modal-text{ margin: 0; font-size: 14px; color: #666; line-height: 1.6; }
 
 .consent-panel-foot{
   padding: 14px 16px;
@@ -194,7 +198,7 @@
   gap: 12px;
 }
 
-.agree{ display: inline-flex; align-items: center; gap: 8px; font-size: 20px; color: #333; }
+.agree{ display: inline-flex; align-items: center; gap: 8px; font-size: 15px; color: #333; }
 .agree input{ width: 18px; height: 18px; }
 
 .apply-btn{
@@ -205,7 +209,7 @@
   background: #4aa7a1;
   color: #fff;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .apply-btn:hover{ filter: brightness(0.98); }
@@ -219,7 +223,7 @@
 
 .survey-bottom,
 .info-bottom{
-  max-width: 83%;
+  max-width: 82.5%;
   margin: 22px auto 0;
   padding: 0 10px;
   display: flex;
@@ -270,35 +274,74 @@
 .page-indicator .dot{ width: 8px; height: 8px; border-radius: 50%; background: #d6dde2; }
 .page-indicator .dot.active{ background: #4aa7a1; }
 
+/* ══════════════════════════════
+   모바일 반응형 (≤900px)
+══════════════════════════════ */
 @media (max-width: 900px){
   .container.info{ padding: 16px 14px 40px; }
 
-  .info-top{ flex-direction: column; gap: 10px; text-align: center; margin: 3% 0 2%; }
+  /* 상단 타이틀 */
+  .info-top{
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    margin: 3% 0 2%;
+  }
   .info-logo{ height: 44px; }
-  .info-title strong, .info-title p{ font-size: 14px; }
+  .info-title strong{ font-size: 16px; }
+  .info-title p{ font-size: 13px; }
 
+  /* 카드 */
   .info-card{ max-width: 100%; padding: 14px 12px; }
-  .info-row{ grid-template-columns: 1fr; gap: 6px; padding: 8px 0; }
-  .info-label{ font-size: 15px; margin-left: 0; margin-bottom: 4px; }
 
-  #phone, .info-select select, .info-select input, .consent-btn{ font-size: 15px; height: 40px; }
+  /* 행: 세로 스택 */
+  .info-row{
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f5f8;
+  }
+  .info-row:last-child{ border-bottom: none; }
+  .info-label{ font-size: 14px; font-weight: 700; margin-left: 0; margin-bottom: 4px; }
+
+  #phone, .info-select select, .info-select input, .consent-btn{
+    font-size: 15px;
+    height: 42px;
+  }
   .consent-label{ font-size: 15px; }
-  .modal-sub, .modal-text, .agree, .apply-btn, .consent-panel-title{ font-size: 15px; }
+  .modal-sub, .modal-text, .agree{ font-size: 14px; }
+  .apply-btn, .consent-panel-title{ font-size: 15px; }
 
-  .survey-bottom, .info-bottom{ max-width: 100%; margin-top: 16px; padding: 0; }
-
-  .prev-btn, .submit{
-    min-width: 90px;
-    height: 44px;
-    padding: 0 28px;
-    font-size: 14px;
+  /* 버튼 영역: 양쪽 끝 정렬 */
+  .survey-bottom, .info-bottom{
+    max-width: 100%;
+    margin-top: 20px;
+    padding: 0;
+    justify-content: space-between;
+    gap: 8px;
   }
 
-  .prev-btn::before{ left: 12px; }
+  .prev-btn, .submit{
+    min-width: 110px;
+    height: 46px;
+    font-size: 15px;
+    border-radius: 10px;
+  }
+
+  .prev-btn{
+    padding: 0 20px 0 38px;
+  }
+  .prev-btn::before{ left: 14px; width: 12px; height: 12px; }
+
+  .submit{
+    padding: 0 24px;
+  }
+
   .consent-panel-foot{ flex-direction: column; align-items: stretch; }
   .apply-btn{ width: 100%; }
 }
 
 @media (max-width: 480px){
-  .prev-btn, .submit{ min-width: 76px; padding: 0 22px; font-size: 13px; }
+  .prev-btn{ min-width: 92px; padding: 0 14px 0 30px; font-size: 14px; height: 44px; }
+  .submit{ min-width: 92px; padding: 0 18px; font-size: 14px; height: 44px; }
 }
